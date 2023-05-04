@@ -6,10 +6,36 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://microliao.club/"/>
-  <updated>2023-04-25T14:48:29.515Z</updated>
+  <updated>2023-04-28T09:39:25.649Z</updated>
   <id>https://microliao.club/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>c++基础</title>
+    <link href="https://microliao.club/2023/04/27/c/c-ji-chu/"/>
+    <id>https://microliao.club/2023/04/27/c/c-ji-chu/</id>
+    <published>2023-04-27T02:15:31.000Z</published>
+    <updated>2023-04-28T09:39:25.649Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-static-inline&quot;&gt;&lt;a href=&quot;#1-static-inline&quot; class=&quot;headerlink&quot; title=&quot;1.static inline&quot;&gt;&lt;/a&gt;1.static
+        
+      
+    
+    </summary>
+    
+      <category term="c++" scheme="https://microliao.club/categories/c/"/>
+    
+    
+      <category term="c++" scheme="https://microliao.club/tags/c/"/>
+    
+  </entry>
   
   <entry>
     <title>cuda编程 简介</title>
@@ -42,7 +68,7 @@
     <link href="https://microliao.club/2023/04/25/deeplearning/"/>
     <id>https://microliao.club/2023/04/25/deeplearning/</id>
     <published>2023-04-24T16:00:00.000Z</published>
-    <updated>2023-04-25T09:18:13.694Z</updated>
+    <updated>2023-04-30T05:46:16.947Z</updated>
     
     <summary type="html">
     
@@ -50,7 +76,8 @@
       
         
         
-          &lt;h3 id=&quot;下面视频为通过RL技术训练出来的足球游戏智能体&quot;&gt;&lt;a href=&quot;#下面视频为通过RL技术训练出来的足球游戏智能体&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;球场位置坐标：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img
         
       
     
@@ -120,7 +147,7 @@
     <link href="https://microliao.club/2023/04/17/linux/linux-chmod-yong-fa/"/>
     <id>https://microliao.club/2023/04/17/linux/linux-chmod-yong-fa/</id>
     <published>2023-04-17T02:15:31.000Z</published>
-    <updated>2023-04-25T08:53:19.734Z</updated>
+    <updated>2023-04-27T14:58:00.458Z</updated>
     
     <summary type="html">
     

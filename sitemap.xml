@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://microliao.club/2023/04/26/cuda/cuda-bian-cheng-jian-jie/</loc>
+    <loc>https://microliao.club/2023/04/25/deeplearning/</loc>
     
-    <lastmod>2023-04-25</lastmod>
+    <lastmod>2023-04-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://microliao.club/2023/04/25/deeplearning/</loc>
+    <loc>https://microliao.club/2023/04/27/c/c-ji-chu/</loc>
     
-    <lastmod>2023-04-25</lastmod>
+    <lastmod>2023-04-28</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -21,6 +21,15 @@
   
   <url>
     <loc>https://microliao.club/2023/04/17/linux/linux-chmod-yong-fa/</loc>
+    
+    <lastmod>2023-04-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://microliao.club/2023/04/26/cuda/cuda-bian-cheng-jian-jie/</loc>
     
     <lastmod>2023-04-25</lastmod>
     
@@ -65,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://microliao.club/categories/index.html</loc>
+    <loc>https://microliao.club/archives/index.html</loc>
     
     <lastmod>2023-04-12</lastmod>
     
@@ -74,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://microliao.club/archives/index.html</loc>
+    <loc>https://microliao.club/categories/index.html</loc>
     
     <lastmod>2023-04-12</lastmod>
     
@@ -94,7 +103,7 @@
 
   <url>
     <loc>https://microliao.club/</loc>
-    <lastmod>2023-04-26</lastmod>
+    <lastmod>2023-05-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -102,35 +111,42 @@
   
   <url>
     <loc>https://microliao.club/tags/gfootball/</loc>
-    <lastmod>2023-04-26</lastmod>
+    <lastmod>2023-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://microliao.club/tags/hexo/</loc>
-    <lastmod>2023-04-26</lastmod>
+    <lastmod>2023-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://microliao.club/tags/cuda/</loc>
-    <lastmod>2023-04-26</lastmod>
+    <loc>https://microliao.club/tags/c/</loc>
+    <lastmod>2023-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://microliao.club/tags/git/</loc>
-    <lastmod>2023-04-26</lastmod>
+    <lastmod>2023-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://microliao.club/tags/linux/</loc>
-    <lastmod>2023-04-26</lastmod>
+    <lastmod>2023-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://microliao.club/tags/cuda/</loc>
+    <lastmod>2023-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -139,35 +155,42 @@
   
   <url>
     <loc>https://microliao.club/categories/deeplearning/</loc>
-    <lastmod>2023-04-26</lastmod>
+    <lastmod>2023-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://microliao.club/categories/hexo/</loc>
-    <lastmod>2023-04-26</lastmod>
+    <lastmod>2023-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://microliao.club/categories/cuda/</loc>
-    <lastmod>2023-04-26</lastmod>
+    <loc>https://microliao.club/categories/c/</loc>
+    <lastmod>2023-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://microliao.club/categories/git/</loc>
-    <lastmod>2023-04-26</lastmod>
+    <lastmod>2023-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://microliao.club/categories/linux/</loc>
-    <lastmod>2023-04-26</lastmod>
+    <lastmod>2023-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://microliao.club/categories/cuda/</loc>
+    <lastmod>2023-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
