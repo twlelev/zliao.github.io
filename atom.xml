@@ -6,17 +6,69 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://microliao.club/"/>
-  <updated>2023-04-28T09:39:25.649Z</updated>
+  <updated>2023-07-17T13:35:25.512Z</updated>
   <id>https://microliao.club/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>视频编码基础</title>
+    <link href="https://microliao.club/2023/07/17/shi-pin-bian-ma/wei-ming-ming/"/>
+    <id>https://microliao.club/2023/07/17/shi-pin-bian-ma/wei-ming-ming/</id>
+    <published>2023-07-17T12:15:00.000Z</published>
+    <updated>2023-07-17T13:35:25.512Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-H-264&quot;&gt;&lt;a href=&quot;#1-H-264&quot; class=&quot;headerlink&quot; title=&quot;1.H.264&quot;&gt;&lt;/a&gt;1.H.264&lt;/h1&gt;&lt;h2 id=&quot;A-ffmpeg入门&quot;&gt;&lt;a href=&quot;#A-ffmpeg入门&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="视频编码基础" scheme="https://microliao.club/categories/%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="视频编码基础" scheme="https://microliao.club/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ncnn基础</title>
+    <link href="https://microliao.club/2023/07/08/ncnn/ncnn/"/>
+    <id>https://microliao.club/2023/07/08/ncnn/ncnn/</id>
+    <published>2023-07-08T06:54:31.000Z</published>
+    <updated>2023-07-09T08:17:13.342Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-NCNN简介&quot;&gt;&lt;a href=&quot;#1-NCNN简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="ncnn" scheme="https://microliao.club/categories/ncnn/"/>
+    
+    
+      <category term="ncnn" scheme="https://microliao.club/tags/ncnn/"/>
+    
+  </entry>
   
   <entry>
     <title>c++基础</title>
     <link href="https://microliao.club/2023/04/27/c/c-ji-chu/"/>
     <id>https://microliao.club/2023/04/27/c/c-ji-chu/</id>
     <published>2023-04-27T02:15:31.000Z</published>
-    <updated>2023-04-28T09:39:25.649Z</updated>
+    <updated>2023-07-05T08:13:01.879Z</updated>
     
     <summary type="html">
     
@@ -42,7 +94,7 @@
     <link href="https://microliao.club/2023/04/26/cuda/cuda-bian-cheng-jian-jie/"/>
     <id>https://microliao.club/2023/04/26/cuda/cuda-bian-cheng-jian-jie/</id>
     <published>2023-04-25T16:00:00.000Z</published>
-    <updated>2023-04-25T14:48:29.515Z</updated>
+    <updated>2023-05-04T09:13:47.206Z</updated>
     
     <summary type="html">
     
@@ -68,7 +120,7 @@
     <link href="https://microliao.club/2023/04/25/deeplearning/"/>
     <id>https://microliao.club/2023/04/25/deeplearning/</id>
     <published>2023-04-24T16:00:00.000Z</published>
-    <updated>2023-04-30T05:46:16.947Z</updated>
+    <updated>2023-05-04T09:26:50.557Z</updated>
     
     <summary type="html">
     
@@ -95,7 +147,7 @@
     <link href="https://microliao.club/2023/04/21/hexo-jian-jie/"/>
     <id>https://microliao.club/2023/04/21/hexo-jian-jie/</id>
     <published>2023-04-20T16:00:00.000Z</published>
-    <updated>2023-04-25T06:43:12.346Z</updated>
+    <updated>2023-05-04T09:08:07.263Z</updated>
     
     <summary type="html">
     
@@ -147,7 +199,7 @@
     <link href="https://microliao.club/2023/04/17/linux/linux-chmod-yong-fa/"/>
     <id>https://microliao.club/2023/04/17/linux/linux-chmod-yong-fa/</id>
     <published>2023-04-17T02:15:31.000Z</published>
-    <updated>2023-04-27T14:58:00.458Z</updated>
+    <updated>2023-05-04T09:24:26.635Z</updated>
     
     <summary type="html">
     
@@ -173,7 +225,7 @@
     <link href="https://microliao.club/2023/04/13/git/git-shang-chuan-ben-di-cang-ku-dao-yuan-cheng-cang-ku/"/>
     <id>https://microliao.club/2023/04/13/git/git-shang-chuan-ben-di-cang-ku-dao-yuan-cheng-cang-ku/</id>
     <published>2023-04-13T03:05:31.000Z</published>
-    <updated>2023-04-24T10:19:04.974Z</updated>
+    <updated>2023-05-04T09:04:31.378Z</updated>
     
     <summary type="html">
     

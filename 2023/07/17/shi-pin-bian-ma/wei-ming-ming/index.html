@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>deeplearning |  twlelev的博客</title>
+      <title>视频编码基础 |  twlelev的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -56,7 +56,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-deeplearning"
+  id="post-视频编码/未命名"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -67,7 +67,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  deeplearning
+  视频编码基础
 </h1>
  
 
@@ -75,11 +75,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/04/25/deeplearning/" class="article-date">
-  <time datetime="2023-04-24T16:00:00.000Z" itemprop="datePublished">2023-04-25</time>
+      <a href="/2023/07/17/shi-pin-bian-ma/wei-ming-ming/" class="article-date">
+  <time datetime="2023-07-17T12:15:00.000Z" itemprop="datePublished">2023-07-17</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/deeplearning/">deeplearning</a>
+    <a class="article-category-link" href="/categories/%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81%E5%9F%BA%E7%A1%80/">视频编码基础</a>
   </div>
   
 <div class="word_count">
@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">845</span>
+            <span class="post-count">479</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">1 分钟</span>
         </span>
     </span>
 </div>
@@ -111,37 +111,23 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p><strong>球场位置坐标：</strong></p>
-<p><img src="/./images/gfootball/gfootball_map.png" alt="avatar"></p>
-<p><strong>球员动作：</strong><br><img src="/./images/gfootball/player_actions.png" alt="avatar"></p>
-<h1 id="针对得分回报的稀疏性解决方案"><a href="#针对得分回报的稀疏性解决方案" class="headerlink" title="针对得分回报的稀疏性解决方案"></a>针对得分回报的稀疏性解决方案</h1><ol>
-<li>通过scoring reward and checkpoint reward来实现(gfootball paper中有介绍)，大致思路就是给区域分块，当球的位置靠近goal,给予checkpoint reward.在早期的训练阶段，checkpoint reward是十分有效的，相当于给一个线索让智能体去得分(线索回报)。但是，checkpoint reward的缺点也是很明显：多样性受限，进攻方式比较单一，player更倾向于自己运球去得分。</li>
-<li>通过监督学习学习一个具有一定得分能力的版本，在此基础上可只通过scoring reward来训练。</li>
-</ol>
-<h1 id="针对进攻方式单一，提高多样性解决方案"><a href="#针对进攻方式单一，提高多样性解决方案" class="headerlink" title="针对进攻方式单一，提高多样性解决方案"></a>针对进攻方式单一，提高多样性解决方案</h1><ol>
-<li>在checkpoint reward训练好的模型上，通过selfplay training 继续训练，此时reward仅仅只有scoring reward(目的是探索更多能得分的行为)。因为训练好的模型已经拥有一定的得分能力，此时的得分回报已经不再稀疏。</li>
-<li>从零开始Selfplay training + opponent pool+checkpointreward，因为gfootball env环境比较单一，selfplay training每通过一定的训练代数保存一个模型，因此逐步提升的模型具有多样性 。因此，随机选择保存的模型作为opponent，可解决gfootball env 环境单一问题。</li>
-<li>通过reward shaping来塑性不同的智能体，例如：持球进攻性，边路进攻性，中路进攻性等，放在opponent pool中来作为对手提高多样性。</li>
-</ol>
-<h1 id="目前存在的问题以及可以优化的地方"><a href="#目前存在的问题以及可以优化的地方" class="headerlink" title="目前存在的问题以及可以优化的地方"></a>目前存在的问题以及可以优化的地方</h1><ol>
-<li>action blocking 存在问题，因为blocking是根据ball_owned_team来判断，当ball_owned_team&#x3D;-1,即球不属于任何一方的时候，可能我们的action仍然属于踢球状态。因此，在使用action blocking后，动作不会那么流畅，而且球员传球后也得有停球动作才能进行传球。</li>
-<li>具有观赏性的动作比较少，比如通过slide抢球，不仅具有观赏性，而且防守也比较高效；pass-&gt; shot(即A传球给B后立马shot，没有停球动作)也比较少。</li>
-<li>2rd place的state dims为749(Fig1)，且仅采用fully-connected,而目前的state dims仅    为220。(就目前自己调研的结果来看，ML 添加更大的state dims有助于帮助收敛)。在监督学习中即使训练过拟合也没有关系。<img src="/./images/gfootball/2rd_observation_state_dims.png" alt="avatar"></li>
-</ol>
-<h1 id="selfplay-训练策略"><a href="#selfplay-训练策略" class="headerlink" title="selfplay 训练策略"></a>selfplay 训练策略</h1><p>selfplay训练模式的思路是：通过checkpoint reward+score reward两者回报相加来得到总的回报。训练的对手不再是基于规则的AI,对手刚开始没有任何得分能力，但随着我们训练的模型保存在模型池里面，训练的对手会从模型池里面载入模型（即训练的对手逐步变强）。</p>
-<pre><code>&quot;latest_ratio&quot;: 0.5,             # works only for self_play training.
-&quot;latest_n_model&quot;: 10,            # works only for self_play training.
+  <h1 id="1-H-264"><a href="#1-H-264" class="headerlink" title="1.H.264"></a>1.H.264</h1><h2 id="A-ffmpeg入门"><a href="#A-ffmpeg入门" class="headerlink" title="A.ffmpeg入门"></a>A.ffmpeg入门</h2><h6 id="a-YUV文件格式"><a href="#a-YUV文件格式" class="headerlink" title="a.YUV文件格式"></a>a.YUV文件格式</h6><p>ffmpeg是一个开源免费跨平台的视频和音频流方案，它提供了录制、转换以及流化音视频的完整解决方案，其包含了非常先进的音频&#x2F;视频编解码库libavcodec.</p>
+<p>YUV(Y’CbCr)是一种像素格式，见于视频编码与静态图像。与RGB格式不同，YUV分别由一个称为Y(相当于灰度)的“亮度”分量和两个称为U(蓝色投影)和V(红色投影)的“色度”分量表示。<br>若只有亮度分量而没有色度分量，即为黑白图片。</p>
+<p>一般用Y, U, V三者的比率来表示不同格式。<br>YUV444表示三者比值是4:4:4,即一个数据点，Y, U, V的空间大小都是一样的。所有格式中Y比值都是4，占一个字节，表示没有减少采样，不同格式中，减少只是UV的采样值。</p>
+<p>4:4:4 ：表示色度值（UV）没有减少采样，即Y, U, V各占一个字节，总共占3字节。</p>
+<p>4:2:2 ：表示UV分量采样减半，比如第一个像素采样Y,U，第二个像素采样Y,V，依次类推，这样每个点招用两个字节。</p>
+<p>4:2:0 ：这种采样并不意味着只有Y,Cb而没有Cr分量，而是U,V分量隔行才采样一次。<br>即[Y0,U0,V0],[Y1,U1,V1],[Y2,U2,V2],[Y3,U3,V3]<br>采样后变为[Y0,U0],[Y1],[Y2,V1],[Y3]<br>由4:4:4的一个像素3字节，变为平均1个像素1.5字节。</p>
+<blockquote>
+<p>ffmpeg库的接口都是c函数，在cpp文件里调用ffmpeg函数需要注意，因为c语言不支持函数重载，一个用C写成的库如果想被C&#x2F;C++同时可以使用，在头文件应该加上以下代码</p>
+</blockquote>
+<pre><code> #ifdef __cplusplus
+  extern &quot;C&quot; &#123;
+  #endif 
+  ...
+  #ifdef __cplusplus
+  &#125;
+  #endif
 </code></pre>
-<p>上图的参数代表的意义：对手的模型以0.5的概率选择模型池里面最新更新的10个模型。</p>
-<p>模型保存的间隔参数配置如下：</p>
-<pre><code>&quot;model_save_interval&quot;: 300000,
-</code></pre>
-<p>Selfplay从0开始训练，大概保存300个模型性能机会不会再有提升了。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>各个队伍解决方案：<br><a target="_blank" rel="noopener" href="https://www.kaggle.com/competitions/google-football/discussion/204645">https://www.kaggle.com/competitions/google-football/discussion/204645</a></p>
-<h1 id="下面视频为通过RL技术训练出来的控制游戏角色视频"><a href="#下面视频为通过RL技术训练出来的控制游戏角色视频" class="headerlink" title="下面视频为通过RL技术训练出来的控制游戏角色视频"></a>下面视频为通过RL技术训练出来的控制游戏角色视频</h1><div align="center"><video  width = "1048" heigt="700" id="video" controls >
-      <source id="mp4" src="/videos/score_rl.mp4" type="video/mp4">
-</video></div>
-
  
       <!-- reward -->
       
@@ -212,12 +198,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://microliao.club/2023/04/25/deeplearning/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://microliao.club/2023/07/17/shi-pin-bian-ma/wei-ming-ming/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gfootball/" rel="tag">gfootball</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81%E5%9F%BA%E7%A1%80/" rel="tag">视频编码基础</a></li></ul>
 
     </footer>
   </div>
@@ -225,19 +211,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2023/04/26/cuda/cuda-bian-cheng-jian-jie/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            cuda编程 简介
-          
-        </div>
-      </a>
     
-    
-      <a href="/2023/04/21/hexo-jian-jie/" class="article-nav-link">
+      <a href="/2023/07/08/ncnn/ncnn/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">hexo 简介</div>
+        <div class="article-nav-title">ncnn基础</div>
       </a>
     
   </nav>

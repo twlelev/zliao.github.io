@@ -152,7 +152,165 @@
     
     
     <article
-  id="post-c++/c++基础"
+  id="post-视频编码/未命名"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/17/shi-pin-bian-ma/wei-ming-ming/"
+    >视频编码基础</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/17/shi-pin-bian-ma/wei-ming-ming/" class="article-date">
+  <time datetime="2023-07-17T12:15:00.000Z" itemprop="datePublished">2023-07-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81%E5%9F%BA%E7%A1%80/">视频编码基础</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="1-H-264"><a href="#1-H-264" class="headerlink" title="1.H.264"></a>1.H.264</h1><h2 id="A-ffmpeg入门"><a href="#A-ffmpeg入门" class="headerlink" title="A.ffmpeg入门"></a>A.ffmpeg入门</h2><h6 id="a-YUV文件格式"><a href="#a-YUV文件格式" class="headerlink" title="a.YUV文件格式"></a>a.YUV文件格式</h6><p>ffmpeg是一个开源免费跨平台的视频和音频流方案，它提供了录制、转换以及流化音视频的完整解决方案，其包含了非常先进的音频&#x2F;视频编解码库libavcodec.</p>
+<p>YUV(Y’CbCr)是一种像素格式，见于视频编码与静态图像。与RGB格式不同，YUV分别由一个称为Y(相当于灰度)的“亮度”分量和两个称为U(蓝色投影)和V(红色投影)的“色度”分量表示。<br>若只有亮度分量而没有色度分量，即为黑白图片。</p>
+<p>一般用Y, U, V三者的比率来表示不同格式。<br>YUV444表示三者比值是4:4:4,即一个数据点，Y, U, V的空间大小都是一样的。所有格式中Y比值都是4，占一个字节，表示没有减少采样，不同格式中，减少只是UV的采样值。</p>
+<p>4:4:4 ：表示色度值（UV）没有减少采样，即Y, U, V各占一个字节，总共占3字节。</p>
+<p>4:2:2 ：表示UV分量采样减半，比如第一个像素采样Y,U，第二个像素采样Y,V，依次类推，这样每个点招用两个字节。</p>
+<p>4:2:0 ：这种采样并不意味着只有Y,Cb而没有Cr分量，而是U,V分量隔行才采样一次。<br>即[Y0,U0,V0],[Y1,U1,V1],[Y2,U2,V2],[Y3,U3,V3]<br>采样后变为[Y0,U0],[Y1],[Y2,V1],[Y3]<br>由4:4:4的一个像素3字节，变为平均1个像素1.5字节。</p>
+<blockquote>
+<p>ffmpeg库的接口都是c函数，在cpp文件里调用ffmpeg函数需要注意，因为c语言不支持函数重载，一个用C写成的库如果想被C&#x2F;C++同时可以使用，在头文件应该加上以下代码</p>
+</blockquote>
+<pre><code> #ifdef __cplusplus
+  extern &quot;C&quot; &#123;
+  #endif 
+  ...
+  #ifdef __cplusplus
+  &#125;
+  #endif
+</code></pre>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81%E5%9F%BA%E7%A1%80/" rel="tag">视频编码基础</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-NCNN/ncnn"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/08/ncnn/ncnn/"
+    >ncnn基础</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/08/ncnn/ncnn/" class="article-date">
+  <time datetime="2023-07-08T06:54:31.000Z" itemprop="datePublished">2023-07-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ncnn/">ncnn</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="1-NCNN简介"><a href="#1-NCNN简介" class="headerlink" title="1.NCNN简介"></a>1.NCNN简介</h1><p>ncnn是一个为手机端极致优化的高性能神经网络前向计算框架。ncnn从设计之初深刻考虑手机端的部署和应用。无第三方依赖，跨平台，手机端cpu的速度快于快于目前所有已知的开源框架。基于ncnn，开发者能够将深度学习算法轻松移植到手机端高效执行，开发出人工智能APP。</p>
+<h1 id="2-怎么使用？"><a href="#2-怎么使用？" class="headerlink" title="2.怎么使用？"></a>2.怎么使用？</h1><ul>
+<li>git clone ncnn仓库(若需要gpu推理需要submodule)</li>
+</ul>
+<pre><code>git clone https://github.com/Tencent/ncnn.git
+cd ncnn
+git submodule update --init
+</code></pre>
+<ul>
+<li>(option) 下载vulkan_sdk(gpu推理配置)</li>
+</ul>
+<pre><code>wget https://sdk.lunarg.com/sdk/download/1.2.189.0/linux/vulkansdk-linux-x86_64-1.2.189.0.tar.gz?Human=true -O vulkansdk-linux-x86_64-1.2.189.0.tar.gz
+tar -xf vulkansdk-linux-x86_64-1.2.189.0.tar.gz
+export VULKAN_SDK=$(pwd)/1.2.189.0/x86_64
+</code></pre>
+<ul>
+<li>编译ncnn库</li>
+</ul>
+<pre><code>## gpu推理
+cd ncnn
+mkdir -p build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=../toolchains/jetson.toolchain.cmake -DNCNN_VULKAN=ON -DNCNN_BUILD_EXAMPLES=ON ..
+make -j$(nproc)
+
+## 若不需要gpu推理
+cd ncnn
+mkdir build
+cd build
+cmake .. &amp;&amp; make -j4
+make install #可以生成头文件和链接库
+</code></pre>
+<ul>
+<li>onnx转ncnn<br>在编译好的build的情况下，.&#x2F;build&#x2F;tools&#x2F;onnx里面的脚本文件onnx2ncnn即为转ncnn推理模型的脚本，将model.onnx转为model.param和model.bin.</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ncnn/" rel="tag">ncnn</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-c++/c++ 基础"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -185,7 +343,7 @@
        
   <h1 id="1-static-inline"><a href="#1-static-inline" class="headerlink" title="1.static inline"></a>1.static inline</h1><p>对于普通函数而言，在a.h中声明然后在a.cpp中定义，再经过编译链接后我们在test1.cpp、test2.cpp中就可以通过#include”a.h”来调用函数。但是对于内联函数而言，我们无法在test1.cpp、test2.cpp中同时通过#include”a.h”来调用内联函数，也就是说一个.h中的内联函数被两个不同的文件包含，则会出现重名，链接失效。但如果使用static inline可以解决<br>这个问题，使用static修饰符，函数仅在文件内部可见。可以理解为一个inline在不同的.C里面生成了不同的实例，而且名字是完全相同的。</p>
 <h1 id="2-static"><a href="#2-static" class="headerlink" title="2.static"></a>2.static</h1><p><strong>static可以修饰哪些变量:</strong></p>
-<p>全局静态变量、局部静态变量、函数，除此之外，还可以修饰类中的静态成员变量以及静态成员函数。</p>
+<p>全局静态变量、局部静态变量、函数，除此之外，还可以修饰类中的静态成员变量以及静态成员函数。<br>&#96;&#96;</p>
 <blockquote>
 <ul>
 <li>全局静态变量和局部静态变量都存储在静态存储区。存储在静态存储区的变量在编译期完成初始化，static定义的局部变量也是在编译时期分配的，而且生存期是永久的，直到生存期结束。</li>
@@ -330,7 +488,7 @@ int main()
 
     
     <article
-  id="post-cuda/CUDA编程简介"
+  id="post-cuda/CUDA 编程简介"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -450,10 +608,10 @@ int main()
 </ol>
 <h1 id="目前存在的问题以及可以优化的地方"><a href="#目前存在的问题以及可以优化的地方" class="headerlink" title="目前存在的问题以及可以优化的地方"></a>目前存在的问题以及可以优化的地方</h1><ol>
 <li>action blocking 存在问题，因为blocking是根据ball_owned_team来判断，当ball_owned_team&#x3D;-1,即球不属于任何一方的时候，可能我们的action仍然属于踢球状态。因此，在使用action blocking后，动作不会那么流畅，而且球员传球后也得有停球动作才能进行传球。</li>
-<li>具有观赏性的动作比较少，比如通过slide抢球，不仅具有观赏性，而且防守也比较高效；pass-&gt;shot(即A传球给B后立马shot，没有停球动作)也比较少。</li>
+<li>具有观赏性的动作比较少，比如通过slide抢球，不仅具有观赏性，而且防守也比较高效；pass-&gt; shot(即A传球给B后立马shot，没有停球动作)也比较少。</li>
 <li>2rd place的state dims为749(Fig1)，且仅采用fully-connected,而目前的state dims仅    为220。(就目前自己调研的结果来看，ML 添加更大的state dims有助于帮助收敛)。在监督学习中即使训练过拟合也没有关系。<img src="/./images/gfootball/2rd_observation_state_dims.png" alt="avatar"></li>
 </ol>
-<h1 id="selfplay-训练策略。"><a href="#selfplay-训练策略。" class="headerlink" title="selfplay 训练策略。"></a>selfplay 训练策略。</h1><p>selfplay训练模式的思路是：通过checkpoint reward+score reward两者回报相加来得到总的回报。训练的对手不再是基于规则的AI,对手刚开始没有任何得分能力，但随着我们训练的模型保存在模型池里面，训练的对手会从模型池里面载入模型（即训练的对手逐步变强）。</p>
+<h1 id="selfplay-训练策略"><a href="#selfplay-训练策略" class="headerlink" title="selfplay 训练策略"></a>selfplay 训练策略</h1><p>selfplay训练模式的思路是：通过checkpoint reward+score reward两者回报相加来得到总的回报。训练的对手不再是基于规则的AI,对手刚开始没有任何得分能力，但随着我们训练的模型保存在模型池里面，训练的对手会从模型池里面载入模型（即训练的对手逐步变强）。</p>
 <pre><code>&quot;latest_ratio&quot;: 0.5,             # works only for self_play training.
 &quot;latest_n_model&quot;: 10,            # works only for self_play training.
 </code></pre>
@@ -489,7 +647,7 @@ int main()
 
     
     <article
-  id="post-hexo简介"
+  id="post-hexo 简介"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -524,11 +682,11 @@ int main()
 <h1 id="2-Hexo常用命令"><a href="#2-Hexo常用命令" class="headerlink" title="2.Hexo常用命令"></a>2.Hexo常用命令</h1><blockquote>
 <ul>
 <li>hexo clean：清除缓存文件</li>
-<li>hexo g  :生成静态文件，即将Markdown文件生成为HTML文件。</li>
-<li>hexo s  :启动本地服务器，用于本地浏览。</li>
-<li>hexo d  :部署博客，将静态文件上传到远程服务器或者GitHub Pages.</li>
-<li>hexo new post “article” :新建一篇名为article的文章。</li>
-<li>hexo new page “title”：用于新建一个空的页面，相当于生成一个文件夹并在文件夹里面有一个初始md文件。</li>
+<li>hexo g: 生成静态文件，即将Markdown文件生成为HTML文件。</li>
+<li>hexo s: 启动本地服务器，用于本地浏览。</li>
+<li>hexo d: 部署博客，将静态文件上传到远程服务器或者GitHub Pages.</li>
+<li>hexo new post “article”: 新建一篇名为article的文章。</li>
+<li>hexo new page “title”: 用于新建一个空的页面，相当于生成一个文件夹并在文件夹里面有一个初始md文件。</li>
 <li>hexo init：新建博客，相当于初始化一个Hexo博客demo，需要空文件夹下执行该命令。</li>
 </ul>
 </blockquote>
@@ -634,7 +792,7 @@ int main()
 
     
     <article
-  id="post-linux/linux chmod用法"
+  id="post-linux/linux chmod 用法"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -678,7 +836,7 @@ int main()
 <h1 id="2-更改权限"><a href="#2-更改权限" class="headerlink" title="2.更改权限"></a>2.更改权限</h1><pre><code>chmod -R 777 uploads: 更改当前路径下的uploads文件夹权限。
 补充：
 ls -ll：查看当前路径下所有文件以及文件夹大小，展示的是字节数。
-ls -lh：查看当前路径下所有文件以及文件夹大小，以KB、MB等为单位进行展  示。
+ls -lh：查看当前路径下所有文件以及文件夹大小，以KB、MB等为单位进行展示。
 </code></pre>
  
       <!-- reward -->
@@ -702,7 +860,7 @@ ls -lh：查看当前路径下所有文件以及文件夹大小，以KB、MB等�
 
     
     <article
-  id="post-git/git上传本地仓库到远程仓库"
+  id="post-git/git 上传本地仓库到远程仓库"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -750,15 +908,13 @@ ls -lh：查看当前路径下所有文件以及文件夹大小，以KB、MB等�
 <li>命令行输入：ssh-keygen　　</li>
 <li>得到生成的密钥：cat  ~&#x2F;.ssh&#x2F;id_rsa.pub</li>
 <li>将密钥在github中进行配置：打开github，在头像下边的settings里面找到SSH and GPG keys，新建SSH，随便取个名字，并将上面得到的密钥粘贴进去。</li>
-<li>通过命令查看本地与github是否连接成功：ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#109;</a></li>
+<li>通过命令查看本地与github是否连接成功：ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a></li>
 </ul>
 <p>　　　　　　</p>
 </blockquote>
 <p>7.将远程仓库链接</p>
 <blockquote>
-<ul>
-<li>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a>…..</li>
-</ul>
+<p>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a>…..  </p>
 </blockquote>
 <p>8.创建分支 </p>
 <blockquote>
@@ -768,7 +924,7 @@ ls -lh：查看当前路径下所有文件以及文件夹大小，以KB、MB等�
 <blockquote>
 <p>git push origin main  </p>
 </blockquote>
-<p>当出现推送失败“hint”的时候，可以强制推送上去。例如，更改远程仓库的名字后，本地仓库的内容将无法推送上去，可以通过-f强制推送，如：git push origin main -f<br>_</p>
+<p>当出现推送失败“hint”的时候，可以强制推送上去。例如，更改远程仓库的名字后，本地仓库的内容将无法推送上去，可以通过-f强制推送，如：git push origin main -f </p>
  
       <!-- reward -->
       

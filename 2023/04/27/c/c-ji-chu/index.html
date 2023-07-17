@@ -56,7 +56,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-c++/c++基础"
+  id="post-c++/c++ 基础"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -113,7 +113,7 @@
        
   <h1 id="1-static-inline"><a href="#1-static-inline" class="headerlink" title="1.static inline"></a>1.static inline</h1><p>对于普通函数而言，在a.h中声明然后在a.cpp中定义，再经过编译链接后我们在test1.cpp、test2.cpp中就可以通过#include”a.h”来调用函数。但是对于内联函数而言，我们无法在test1.cpp、test2.cpp中同时通过#include”a.h”来调用内联函数，也就是说一个.h中的内联函数被两个不同的文件包含，则会出现重名，链接失效。但如果使用static inline可以解决<br>这个问题，使用static修饰符，函数仅在文件内部可见。可以理解为一个inline在不同的.C里面生成了不同的实例，而且名字是完全相同的。</p>
 <h1 id="2-static"><a href="#2-static" class="headerlink" title="2.static"></a>2.static</h1><p><strong>static可以修饰哪些变量:</strong></p>
-<p>全局静态变量、局部静态变量、函数，除此之外，还可以修饰类中的静态成员变量以及静态成员函数。</p>
+<p>全局静态变量、局部静态变量、函数，除此之外，还可以修饰类中的静态成员变量以及静态成员函数。<br>&#96;&#96;</p>
 <blockquote>
 <ul>
 <li>全局静态变量和局部静态变量都存储在静态存储区。存储在静态存储区的变量在编译期完成初始化，static定义的局部变量也是在编译时期分配的，而且生存期是永久的，直到生存期结束。</li>
@@ -318,6 +318,15 @@ int main()
 
    
   <nav class="article-nav">
+    
+      <a href="/2023/07/08/ncnn/ncnn/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            ncnn基础
+          
+        </div>
+      </a>
     
     
       <a href="/2023/04/26/cuda/cuda-bian-cheng-jian-jie/" class="article-nav-link">
