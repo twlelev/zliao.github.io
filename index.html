@@ -152,7 +152,7 @@
     
     
     <article
-  id="post-视频编码/未命名"
+  id="post-视频编码/视频编码基础"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -163,7 +163,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2023/07/17/shi-pin-bian-ma/wei-ming-ming/"
+  <a class="article-title" href="/2023/07/17/shi-pin-bian-ma/shi-pin-bian-ma-ji-chu/"
     >视频编码基础</a> 
 </h2>
  
@@ -172,7 +172,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/07/17/shi-pin-bian-ma/wei-ming-ming/" class="article-date">
+      <a href="/2023/07/17/shi-pin-bian-ma/shi-pin-bian-ma-ji-chu/" class="article-date">
   <time datetime="2023-07-17T12:15:00.000Z" itemprop="datePublished">2023-07-17</time>
 </a> 
   <div class="article-category">
@@ -183,7 +183,8 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="1-H-264"><a href="#1-H-264" class="headerlink" title="1.H.264"></a>1.H.264</h1><h2 id="A-ffmpeg入门"><a href="#A-ffmpeg入门" class="headerlink" title="A.ffmpeg入门"></a>A.ffmpeg入门</h2><h6 id="a-YUV文件格式"><a href="#a-YUV文件格式" class="headerlink" title="a.YUV文件格式"></a>a.YUV文件格式</h6><p>ffmpeg是一个开源免费跨平台的视频和音频流方案，它提供了录制、转换以及流化音视频的完整解决方案，其包含了非常先进的音频&#x2F;视频编解码库libavcodec.</p>
+  <h1 id="1-H-264"><a href="#1-H-264" class="headerlink" title="1.H.264"></a>1.H.264</h1><p><a target="_blank" rel="noopener" href="https://jordicenzano.name/2014/08/31/the-source-code-of-a-minimal-h264-encoder-c/">简单项目实现</a></p>
+<h2 id="A-ffmpeg入门"><a href="#A-ffmpeg入门" class="headerlink" title="A.ffmpeg入门"></a>A.ffmpeg入门</h2><h6 id="a-YUV文件格式"><a href="#a-YUV文件格式" class="headerlink" title="a.YUV文件格式"></a>a.YUV文件格式</h6><p>ffmpeg是一个开源免费跨平台的视频和音频流方案，它提供了录制、转换以及流化音视频的完整解决方案，其包含了非常先进的音频&#x2F;视频编解码库libavcodec.</p>
 <p>YUV(Y’CbCr)是一种像素格式，见于视频编码与静态图像。与RGB格式不同，YUV分别由一个称为Y(相当于灰度)的“亮度”分量和两个称为U(蓝色投影)和V(红色投影)的“色度”分量表示。<br>若只有亮度分量而没有色度分量，即为黑白图片。</p>
 <p>一般用Y, U, V三者的比率来表示不同格式。<br>YUV444表示三者比值是4:4:4,即一个数据点，Y, U, V的空间大小都是一样的。所有格式中Y比值都是4，占一个字节，表示没有减少采样，不同格式中，减少只是UV的采样值。</p>
 <p>4:4:4 ：表示色度值（UV）没有减少采样，即Y, U, V各占一个字节，总共占3字节。</p>
@@ -200,6 +201,18 @@
   &#125;
   #endif
 </code></pre>
+<h2 id="B-指数哥伦布编码（Exp-Golomb）"><a href="#B-指数哥伦布编码（Exp-Golomb）" class="headerlink" title="B.指数哥伦布编码（Exp-Golomb）"></a>B.指数哥伦布编码（Exp-Golomb）</h2><h4 id="a-熵编码"><a href="#a-熵编码" class="headerlink" title="a.熵编码"></a>a.熵编码</h4><p>熵编码属于无损编码，熵编码包括的编码方法有：香农-范诺编码、霍夫曼编码、算术编码、指数哥伦布编码、CABAC等，这一类编码方法的宗旨就是找到一种编码，使得码字的平均长度达到熵极限。具体而言，采用的准则为：对出现概率较大的符号，取较短的码长，而对出现概率较小的符号取较大的码长。</p>
+<ul>
+<li>熵<br>在信息论中，称为信息熵，信息越是随机，它的熵值越高，待编码的图像像素信息、码流的各个句法元素值都属于信息。<br>信息熵，就是为了解决信息的量化度量问题，它描述了整个信源的平均信息量。信息熵在我们的熵编码中，表示信源无损编码后平均码长的下限，故熵编码就是为了使编码后码字的平均码长尽量达到熵极限。平均码长越接近熵，说明熵编码的压缩效率越高。</li>
+<li>熵和熵编码<br>熵编码可以分为以下两类：<br>（1）变长编码：霍夫曼编码、指数哥伦布编码、CAVLC等<br>（2）算术编码：CABAC等算数编码<br>在H.264中应用的有：指数哥伦布编码、CAVLC、CABAC</li>
+</ul>
+<h4 id="b-指数哥伦布编码"><a href="#b-指数哥伦布编码" class="headerlink" title="b.指数哥伦布编码"></a>b.指数哥伦布编码</h4><p>指数哥伦布编码是一种较简单的编码方法，正常来说，它可以拓展至K阶，即K阶指数哥伦布编码。而在H.264中使用的是0阶指数哥伦布编码。<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/565209140">详细介绍</a><br>0阶指数哥伦布编码，编码过程如下图所示：<br><img src="/../images/coder-decoder/expgolomb.png" alt="avatar"><br>以待编码码号code_num&#x3D;3为例：<br>第一步：将code_num +1 ,即3+1&#x3D;4；<br>第二步：将4写成二进制的形式：100<br>第三步：计算100的比特个数为3，在100前面写（3-1）个0，得到编码码字00100</p>
+<p>基于上述的0阶，我们可以轻松扩展至K阶：<br>第一步：将code_num+2k<br>第二步：将code_num +2k写为二进制的形式<br>第三步：计算二进制的比特个数M,并在前面加上M-1个0，得到编码码字。</p>
+<h4 id="c-指数哥伦布解码"><a href="#c-指数哥伦布解码" class="headerlink" title="c.指数哥伦布解码"></a>c.指数哥伦布解码</h4><p>这一描述在h264协议的9.1节，h264中的描述子，代表了解码过程，下面以描述子为主线，依次介绍h264中的4个指数哥伦布编码描述子：ue(v)、se(v)、me(v)、te(v).</p>
+<ul>
+<li>ue(v)<br>   ue(v)代表了0阶指数哥伦布编码，通常被称为无符号指数哥伦布编码。如下图：<br>   <img src="/../images/coder-decoder/decoder.png" alt="avatar"><br>   可以发现，码字和code_num之间，有以下公式：<br>   codeNum &#x3D; 2leadingzerobits-1+read_bits(leadingZeroBits)<br>   其中leadingZeroBits为中间1前面0的个数，所以在解码的时候，如果遇到描述子ue(v),则可以先数0的个数，数到1为止，其中0的个数即为leadingZeroBits.而read_bits(leadingZeroBits)，则为从中间1开始往后数leadingZeroBits个比特位的十进制值，上面解码的计算图如下：<br>   <img src="/../images/coder-decoder/decoder1.png" alt="avatar"></li>
+<li>se(v)<br>  se(v)也称为有符号指数哥伦布编码，因此它的输出有可能为负。 当描述子为se(v)时，它的输入为上述过程解析出来的codeNum,即如果遇到se(v)需要先调用ue(v)，得出codeNum的值，然后调用se(v)的解析过程，se(v)的输出即为语法元素的值。	<br>  <img src="/../images/coder-decoder/decoder2.png" alt="avatar"></li>
+</ul>
  
       <!-- reward -->
       
