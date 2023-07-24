@@ -2,7 +2,6 @@ https://microliao.club/2023/07/17/shi-pin-bian-ma/shi-pin-bian-ma-ji-chu/
 https://microliao.club/2023/07/08/ncnn/ncnn/
 https://microliao.club/2023/04/27/c/c-ji-chu/
 https://microliao.club/2023/04/26/cuda/cuda-bian-cheng-jian-jie/
-https://microliao.club/2023/04/25/deeplearning/
 https://microliao.club/2023/04/21/hexo-jian-jie/
 https://microliao.club/2023/04/17/git/git-commit-gui-fan/
 https://microliao.club/2023/04/17/linux/linux-chmod-yong-fa/
